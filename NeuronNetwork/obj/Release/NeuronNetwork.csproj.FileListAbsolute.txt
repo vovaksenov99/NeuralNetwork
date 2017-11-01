@@ -1,0 +1,8 @@
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\bin\Release\NeuronNetwork.exe.config
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\bin\Release\NeuronNetwork.exe
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\bin\Release\NeuronNetwork.pdb
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\obj\Release\NeuronNetwork.MainActivity.resources
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\obj\Release\NeuronNetwork.Properties.Resources.resources
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\obj\Release\NeuronNetwork.csproj.GenerateResource.Cache
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\obj\Release\NeuronNetwork.exe
+C:\Users\AksCorp\documents\visual studio 2017\Projects\NeuronNetwork\NeuronNetwork\obj\Release\NeuronNetwork.pdb
