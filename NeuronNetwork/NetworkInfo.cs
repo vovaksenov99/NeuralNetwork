@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace NeuronNetwork
 {
+	/**
+	 * Show infomation about neuron network with define output type
+	 **/
 	class NetworkInfo
 	{
 

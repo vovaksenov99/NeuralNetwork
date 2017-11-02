@@ -7,6 +7,22 @@ using System.Text;
 
 namespace NeuronNetwork
 {
+	/**
+	 * Basic network principles
+	 * 
+	 * Network type is Feedforward
+	 * Use sygmoid activation function  <see cref="Neuron.activationFunction(double)"/> 
+	 * Use backpropagation type for training
+	 * Start Neuron newtwork parameters define in App.config
+	 * Start synapses values are random number. This define in App.config. 
+	 * 
+	 * WARNINGS:
+	 * First layer is ONLY input neurons
+	 * Last layer is ONLY output neuron
+	 * 
+	 * In other case neuron network result will be uncorrect.
+	 * 
+	 **/
 	class NeuronNetwork
 	{
 		public static Random rand = new Random();
@@ -79,7 +95,7 @@ namespace NeuronNetwork
 				((Input)networkLayers[0].layerNeurons[i]).inValue = values[i];
 		}
 
-		public double execute(double[] values)
+		public double[] execute(double[] values)
 		{
 			defineInputValues(values);
 			for (int currentLayer = 0; currentLayer < layersCount; currentLayer++)
@@ -90,8 +106,12 @@ namespace NeuronNetwork
 					currentNeuron.calculateOutValue();
 				}
 			}
-			//TODO: modify for several neurons
-			return networkLayers[layersCount - 1].layerNeurons[networkLayers[layersCount - 1].neuronsCount - 1].outValue;
+
+			double[] output = new double[networkLayers[layersCount - 1].neuronsCount];
+			for (int i = 0; i < output.Length; i++)
+				output[i] = networkLayers[layersCount - 1].layerNeurons[i].outValue;
+
+			return output;
 		}
 
 		public void correctSynapsesValues()

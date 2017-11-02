@@ -33,13 +33,11 @@ namespace NeuronNetwork
 				for (int j = 0; j < neuron.Value; j++)
 					layerNeurons.Add(createNeuron(neuron.Key, new object[] { nextLayer }));
 			}
-
 			neuronsCount = layerNeurons.Count;
 		}
 
 		private Neuron createNeuron(string type, object[] parameters)
 		{
-
 			Type objectType = Type.GetType(NeuronNetwork.NAMESPACE + "." + type);
 			ConstructorInfo ctor = objectType.GetConstructor(new Type[] { typeof(Layer) });
 			return Activator.CreateInstance(objectType, parameters) as Neuron;

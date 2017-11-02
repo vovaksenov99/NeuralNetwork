@@ -20,29 +20,23 @@ namespace NeuronNetwork
 
 		private void MainActivity_Load(object sender, EventArgs e)
 		{
+			/**
+			 * Use sample 
+			 * 
+			 * 
+			 * */
+			NetworkInfo info = new NetworkInfo(NetworkInfo.CONSOLE_OUTPUT);
 
-			//info.displayInfo(info.getCurrentNetworkState(network));
-			int cc = 0;
-			for (int i = 0; i < 100; i++)
-			{
-				NeuronNetwork network = new NeuronNetwork();
-				TrainingController controller = new TrainingController();
-				NetworkInfo info = new NetworkInfo(NetworkInfo.CONSOLE_OUTPUT);
-				for (int j = 0; j < 600; j++)
-					controller.trainNetwork(ref network, new string[] { "set.txt" });
-				if (network.execute(new double[] { 0, 0 }) > 0.2)
-				{ cc++; continue; }
+			NeuronNetwork network = new NeuronNetwork();
 
-				if (network.execute(new double[] { 0, 1 }) < 0.8)
-				{ cc++; continue; }
-				if (network.execute(new double[] { 1, 0 }) < 0.8)
-				{ cc++; continue; }
-				if (network.execute(new double[] { 1, 1 }) > 0.2)
-				{ cc++; continue; }
-			}
-			Console.Write(cc.ToString());
-			MessageBox.Show(cc.ToString());
-			Close();
+			info.displayInfo(info.getCurrentNetworkState(network));
+
+			TrainingController controller = new TrainingController();
+			controller.trainNetwork(ref network, new string[] { "trainingSet.txt" });
+
+			double[] rez = network.execute(new double[] { 0, 0 });
+
+			info.displayInfo(info.getCurrentNetworkState(network));
 		}
 	}
 }

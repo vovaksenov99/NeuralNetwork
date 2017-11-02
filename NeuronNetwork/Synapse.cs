@@ -2,6 +2,9 @@
 
 namespace NeuronNetwork
 {
+	/**
+	 * Define synapse structure
+	 **/
 	public class Synapse
 	{
 		public Neuron a, b;
@@ -23,7 +26,9 @@ namespace NeuronNetwork
 
 			this.weight = weight;
 		}
-
+		/**
+		 * Use for update value after training
+		**/
 		public void updateWeight()
 		{
 			double delta = Convert.ToDouble(NeuronNetwork.networkParameters.SPEED) * getGradient() + Convert.ToDouble(NeuronNetwork.networkParameters.MOMENT) * lastDelta;
@@ -45,7 +50,7 @@ namespace NeuronNetwork
 
 		public string toString()
 		{
-			return String.Format("[{0},{1}] with weight = {2}\n",a.getType(),b.getType(),weight);
+			return String.Format("[{0},{1}] with weight = {2}\n", a.getType(), b.getType(), weight);
 		}
 	}
 }

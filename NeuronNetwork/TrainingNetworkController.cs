@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace NeuronNetwork
 {
+	/**
+	 * Class with tests fot network
+	 * */
 	public class TrainingSet
 	{
 		public double[][] trainingSet;
@@ -40,34 +43,39 @@ namespace NeuronNetwork
 				trainingSet[i] = trainingsRow[i].Split(' ').Select(double.Parse).ToArray();
 		}
 	}
+
+	/**
+	 * Manage all training work
+	 * */
 	class TrainingController
 	{
 		public TrainingSet[] trainingSets;
 
-		public void trainNetwork(ref NeuronNetwork network, string[] trainingNames)
+		public void trainNetwork(ref NeuronNetwork network, string[] trainingSetsNames)
 		{
-			trainingSets = new TrainingSet[trainingNames.Length];
-			for (int i = 0; i < trainingNames.Length; i++)
-				trainingSets[i] = new TrainingSet(trainingNames[i]);
+			trainingSets = new TrainingSet[trainingSetsNames.Length];
+			for (int i = 0; i < trainingSetsNames.Length; i++)
+				trainingSets[i] = new TrainingSet(trainingSetsNames[i]);
 
 			for (int i = 0; i < trainingSets.Length; i++)
 				for (int j = 0; j < trainingSets[i].trainingSet.Length; j++)
 					trainingTest(ref network, trainingSets[i].trainingSet[j]);
 		}
 
-		//run only single test
+
+		/**
+		 * Train ONLY one test
+		 * */
 		private void trainingTest(ref NeuronNetwork network, double[] values)
 		{
 			int outNeuronCount = Convert.ToInt32(NeuronNetwork.networkParameters.OUT_NEURONS_COUNT);
 
-			double rez = network.execute(values.Take(values.Length - outNeuronCount).ToArray());
-			//Console.Write((values[2] - rez) * (values[2] - rez) * 100.0+"\n------------------------------------\n");
-			for (int i=0;i< outNeuronCount;i++)
+			// give output value for out neurons
+			for (int i = 0; i < outNeuronCount; i++)
 			{
 				((Out)network.networkLayers[network.layersCount - 1].layerNeurons[i]).idealValue = values[values.Length - outNeuronCount + i];
 			}
-			NetworkInfo info = new NetworkInfo(NetworkInfo.CONSOLE_OUTPUT);
-			//info.displayInfo(info.getCurrentNetworkState(network));
+			// change synapse weight values
 			network.correctSynapsesValues();
 		}
 	}
