@@ -13,7 +13,7 @@ Open neuron network with extensible architecture and status logging.
 ## WARNINGS:
 First layer is **ONLY** input neurons
 
-Last layer is **ONLY** output neuron
+Last layer is **ONLY** output neurons
 
 In other case neuron network result will be uncorrect or network will be crash.
 
