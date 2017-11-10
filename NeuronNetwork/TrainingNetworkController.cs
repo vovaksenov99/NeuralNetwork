@@ -75,8 +75,9 @@ namespace NeuronNetwork
 			{
 				((Out)network.networkLayers[network.layersCount - 1].layerNeurons[i]).idealValue = values[values.Length - outNeuronCount + i];
 			}
-			// change synapse weight values
-			network.correctSynapsesValues();
+            // change synapse weight values
+            network.execute(values.Take(values.Length - outNeuronCount).ToArray());
+            network.correctSynapsesValues();
 		}
 	}
 }
