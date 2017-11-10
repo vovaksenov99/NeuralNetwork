@@ -77,7 +77,6 @@ namespace NeuronNetwork
 			}
             // change synapse weight values
             network.execute(values.Take(values.Length - outNeuronCount).ToArray());
-
             network.correctSynapsesValues();
 		}
 	}
