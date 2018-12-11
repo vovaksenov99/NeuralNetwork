@@ -1,4 +1,4 @@
-# NeuronNetwork ![](https://img.shields.io/packagist/l/doctrine/orm.svg)  ![](https://img.shields.io/badge/Status-beta-orange.svg)
+# NeuralNetwork ![](https://img.shields.io/packagist/l/doctrine/orm.svg)  ![](https://img.shields.io/badge/Status-beta-orange.svg)
 Open neuron network with extensible architecture and status logging.
 ## Basic network principles
 	  
