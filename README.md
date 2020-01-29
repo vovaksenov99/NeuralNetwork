@@ -50,5 +50,5 @@ private void MainActivity_Load(object sender, EventArgs e)
     info.displayInfo(info.getCurrentNetworkState(network));
 }
 ```
-### Autors
+### Author
 @lindlind and @vovaksenov99
